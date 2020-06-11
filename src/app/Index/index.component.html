@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foodie</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+    <header class="sticky-top">
+        <div class="layer">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <h4>My Fridge</h4>
+                    </a>
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse sidenav">
+                        <a href="javascript:void(0)" class="closebtn d-lg-none" id="cls-btn">&times;</a>
+                        <ul class="navbar-nav ml-lg-auto">
+                            <li>
+                                <a routerLink="/index">Home</a>
+                            </li>
+
+                            <li>
+                                <a routerLink="">recipies</a>
+                            </li>
+
+                            <li>
+                                <a routerLink="index/signin" >Sign-in</a>
+                            </li>
+                            <li>
+                                <a  routerLink="signup" >Sign-up</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+<section class="index-recipies">
+  <div class="container">
+
+    <div class="s006">
+      <form>
+        <fieldset>
+
+          <div class="inner-form">
+            <div class="input-field">
+              <button class="btn-search" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                  </path>
+                </svg>
+              </button>
+              <input id="search" type="text" placeholder="" value="Search Food Recipes" />
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+    <ul class="row">
+      <li class="col-sm-6 col-md-4" *ngFor="let rec of recipes">
+        <figure>
+          <a routerLink="fooddetail">
+            <img src="../assets/images/{{rec.imageUrl}}" alt="">
+            <div class="overlay">
+              <h5>{{rec.foodName}}</h5>
+              <span>Food & Drinks</span>
+            </div>
+          </a>
+        </figure>
+      </li>
+    </ul>
+    <div class="row mt-3">
+      <div class="col">
+        <div class="btn-group">
+          <button
+          *ngFor="let page of pageNumbers"
+           (click)="changePage(page)"
+           class="btn btn-outline-primary"
+           [class.active]="page==selectedPage">
+           {{page}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="index-contact">
+    <div class="layer">
+        <div class="container">
+            <h5>My Fridge</h5>
+            <h1>Good Food Good Life</h1>
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="../app/js/owl.carousel.js"></script>
+<script src="../app/js/aos.js"></script>
+<script src="../app/js/script.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $('.loop').owlCarousel({
+            center: true,
+            items: 2,
+            loop: true,
+            margin: 0,
+            // autoplay: true,
+            // slideTransition: 'linear',
+            // autoplayTimeout: 2000,
+            // autoplaySpeed: 1000,
+            // autoplayHoverPause: true,
+            responsive: {
+                426: {
+                    items: 2
+                },
+                640: {
+                    items: 3
+                },
+                768: {
+                    items: 4
+                },
+            }
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

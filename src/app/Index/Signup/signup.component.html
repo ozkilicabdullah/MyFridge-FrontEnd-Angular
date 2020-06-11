@@ -1,0 +1,32 @@
+<section class="index-recipies">
+    <div class="container">
+        <div class="page-wrapper bg-red p-t-60 p-b-100 font-robo">
+            <div class="wrapper wrapper--w960">
+                <div class="card card-2">
+                    <div class="card-heading"></div>
+                    <div class="card-body" #user>
+                        <h2 class="title">Registration Info</h2>
+                        <form method="POST">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" [(ngModel)]="user.name" #name="ngModel" name="name" placeholder="Name" required >
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" [(ngModel)]="user.lastName" #lastName="ngModel" name="lastName" placeholder="Last Name" required >
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text"  [(ngModel)]="user.userName" #userName="ngModel" name="userName" placeholder="User Name" required >
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="password" [(ngModel)]="user.password" #password="ngModel" name="password" placeholder="Password" required >
+                            </div>
+                            <div class="p-t-30">
+                                <button class="btn btn--radius btn--green" (click)="addUser(user)" >Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
